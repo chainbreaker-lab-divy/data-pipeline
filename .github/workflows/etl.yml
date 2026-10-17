@@ -1,0 +1,14 @@
+name: etl
+on:
+  push:
+    branches: [main]
+permissions:
+  contents: write
+jobs:
+  etl:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: chainbreaker-lab-divy/cb-release-kit@v1
+      - run: echo "etl (demo)"
+        env:
+          SNOWFLAKE_PASSWORD: ${{ secrets.SNOWFLAKE_PASSWORD }}
